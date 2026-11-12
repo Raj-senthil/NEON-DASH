@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#04040c" />
+  <title>NEON DASH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="ui">
+    <div id="flash"></div>
+    <div id="vignette"></div>
+
+    <!-- ============ HOME ============ -->
+    <div class="screen active" id="home">
+      <div class="home-inner">
+        <h1 class="title">NEON&nbsp;DASH</h1>
+        <div class="subtitle">ENDLESS&nbsp;NEON&nbsp;RUNNER</div>
+
+        <div class="best-chip"><span>BEST</span><b id="bestHome">0</b></div>
+
+        <div class="btn-row">
+          <button class="btn primary" id="btnPlay">▶&nbsp;&nbsp;Play</button>
+        </div>
+
+        <div class="howto">
+          <div class="howto-title">HOW TO PLAY</div>
+          <div class="howto-row">
+            <span class="keys"><kbd>SPACE</kbd><kbd>W</kbd></span>
+            <span>Jump over gaps &amp; barriers</span>
+          </div>
+          <div class="howto-row">
+            <span class="keys"><kbd>A</kbd><kbd>D</kbd><kbd>◄</kbd><kbd>►</kbd></span>
+            <span>Switch lanes — dodge the red blocks</span>
+          </div>
+          <div class="howto-row">
+            <span class="keys"><kbd>P</kbd><kbd>ESC</kbd></span>
+            <span>Pause the run</span>
+          </div>
+        </div>
+
+        <div class="footer">COLLECT THE GOLD COINS · SURVIVE AS LONG AS YOU CAN</div>
+      </div>
+    </div>
+
+    <!-- ============ HUD ============ -->
+    <div id="hud">
+      <div class="hud-left">
+        <div class="stat"><label>SCORE</label><b id="hudScore">0</b></div>
+        <div class="stat gold"><label>COINS</label><b id="hudCoins">0</b></div>
+      </div>
+      <div class="hud-right">
+        <div class="speed">
+          <label>SPEED <span id="hudMult">x1.0</span></label>
+          <div class="bar"><div id="hudSpeedFill"></div></div>
+        </div>
+        <button id="btnPause" aria-label="Pause"><span></span><span></span></button>
+      </div>
+    </div>
+
+    <!-- ============ PAUSE ============ -->
+    <div class="screen" id="pause">
+      <div class="panel">
+        <h2 class="panel-title cyan">PAUSED</h2>
+        <div class="btn-col">
+          <button class="btn primary" id="btnResume">Resume</button>
+          <button class="btn" id="btnRestartP">Restart</button>
+          <button class="btn ghost" id="btnMenuP">Main Menu</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ GAME OVER ============ -->
+    <div class="screen" id="gameover">
+      <div class="panel">
+        <h2 class="panel-title pink">GAME OVER</h2>
+        <div id="newBest" class="new-best">★&nbsp;NEW&nbsp;BEST&nbsp;★</div>
+        <div class="results">
+          <div class="result"><label>SCORE</label><b id="foScore">0</b></div>
+          <div class="result gold"><label>COINS</label><b id="foCoins">0</b></div>
+          <div class="result"><label>BEST</label><b id="foBest">0</b></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn primary" id="btnRestart">Restart</button>
+          <button class="btn ghost" id="btnMenu">Main Menu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
